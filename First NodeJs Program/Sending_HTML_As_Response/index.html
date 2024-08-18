@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        body,html{
+            width: 100%;
+            height: 100%;
+
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+        }
+        .cont{
+            display: flex;
+            justify-content: center;
+        }
+        .active{
+            background-color: rgb(101, 52, 124);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>This file is send by the Server</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci pariatur fuga, nulla iure incidunt doloribus at ut nobis ratione laboriosam ducimus ipsa autem quae iste similique doloremque sunt hic amet laborum corporis vel accusamus facere fugit? Ipsa labore aspernatur quis eaque quod adipisci nam, numquam, natus alias eum dignissimos perferendis.</p>
+    <div class="cont">
+        <button>Click Me</button>
+    </div>
+    </div>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', ()=>{
+            const container = document.querySelector('.container');
+            container.classList.toggle('active');
+        })
+    </script>
+</body>
+</html>
