@@ -32,6 +32,3 @@ async function sendMail() {
 
 }
 sendMail();
-sendMail();
-sendMail();
-sendMail();
