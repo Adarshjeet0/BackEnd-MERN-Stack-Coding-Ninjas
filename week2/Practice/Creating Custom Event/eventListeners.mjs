@@ -15,8 +15,6 @@ function  updateTimeline() {
     console.log("Timeline updated");
 }
 
-// userEvent.createPost('This is my first post')
-// userEvent.addListener("Post created");
 userEvent.addListener('postCreated',saveToDatabase);
 userEvent.addListener('postCreated',sendNotification);
 userEvent.addListener('postCreated',updateTimeline);
