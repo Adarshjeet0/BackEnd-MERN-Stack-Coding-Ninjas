@@ -5,8 +5,10 @@ import path  from "path";
 
 export default class ProductController{
     getProduct(req,res){
+        let products = ProductModel.get();
+        res.render('product',{products:products})
         console.log(ProductModel.get());
-        res.sendFile(path.join(path.resolve(),"src","views","product.html"))
+        // res.sendFile(path.join(path.resolve(),"src","views","product.html"))
     }
 }
 // console.log("This is path: "+path.join('src','controllers','product.controller.js'));
