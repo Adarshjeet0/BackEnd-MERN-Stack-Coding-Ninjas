@@ -2,10 +2,12 @@
 import express from 'express'
 import ProductController from './src/controllers/product.controller.js'
 import path from 'path'
+import ejsLayouts from 'express-ejs-layouts'
 
 //creating server
 const server = express();
 
+server.use(ejsLayouts);
 //setup view engine settings
 server.set('view engine', 'ejs');
 server.set('views', path.join(path.resolve(),'src','views'));
