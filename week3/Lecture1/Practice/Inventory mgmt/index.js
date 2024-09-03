@@ -15,6 +15,9 @@ server.set('views', path.join(path.resolve(),'src','views'));
 
 const productController = new ProductController();
 
+// parsing url data
+server.use(express.urlencoded({extended:true}))
+
 server.get('/', productController.getProduct)
 server.get('/new', productController.getaddItemForm)
 server.post('/',productController.addNewProduct)

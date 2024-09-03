@@ -18,8 +18,9 @@ export default class ProductController{
     }
     addNewProduct(req,res){
         // let product = ;
-        let products = ProductModel.get();
         console.log(req.body);
+        ProductModel.add(req.body);
+        let products = ProductModel.get();
         res.render('product',{products:products})
     }
 }
