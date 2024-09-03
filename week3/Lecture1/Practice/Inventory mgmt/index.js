@@ -16,6 +16,8 @@ server.set('views', path.join(path.resolve(),'src','views'));
 const productController = new ProductController();
 
 server.get('/', productController.getProduct)
+server.get('/new', productController.getaddItemForm)
+server.post('/',productController.addNewProduct)
 server.use(express.static('./src/views'))
 
 server.listen(5000);

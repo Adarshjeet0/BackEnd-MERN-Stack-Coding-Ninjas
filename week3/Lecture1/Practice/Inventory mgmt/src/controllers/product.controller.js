@@ -7,8 +7,20 @@ export default class ProductController{
     getProduct(req,res){
         let products = ProductModel.get();
         res.render('product',{products:products})
+        // console.log(ProductModel.get());
+        // res.sendFile(path.join(path.resolve(),"src","views","product.html"))
+    }
+    getaddItemForm(req,res){
+        // let products = ProductModel.get();
+        return res.render('add-item',)
         console.log(ProductModel.get());
         // res.sendFile(path.join(path.resolve(),"src","views","product.html"))
+    }
+    addNewProduct(req,res){
+        // let product = ;
+        let products = ProductModel.get();
+        console.log(req.body);
+        res.render('product',{products:products})
     }
 }
 // console.log("This is path: "+path.join('src','controllers','product.controller.js'));
