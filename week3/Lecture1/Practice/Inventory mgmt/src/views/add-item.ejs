@@ -1,5 +1,10 @@
 
 <h1 class="mt-5 mb-5">Add New Product</h1>
+<% if(errors){ %>
+    <div class="alert alert-danger" role="alert">
+        <%= errors %>
+    </div>
+<% } %>
 <form action="/" method="post">
     <div class="mb-4">
         <label for="name" class="form-label fw-bold">Product Name</label>
