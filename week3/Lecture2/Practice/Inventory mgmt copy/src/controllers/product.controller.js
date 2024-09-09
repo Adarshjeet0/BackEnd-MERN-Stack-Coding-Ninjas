@@ -6,30 +6,29 @@ import path  from "path";
 export default class ProductController{
     getProduct(req,res){
         let products = ProductModel.get();
-        res.render('product',{products:products})
+        res.render('product',{products:products});
         // console.log(ProductModel.get());
         // res.sendFile(path.join(path.resolve(),"src","views","product.html"))
     }
+
     getaddItemForm(req,res){
         // let products = ProductModel.get();
         console.log(ProductModel.get());
         return res.render('add-item',{errors:null})
         // res.sendFile(path.join(path.resolve(),"src","views","product.html"))
     }
+
     addNewProduct(req,res){
-        // let product = ;
-        console.log(req.body);
         ProductModel.add(req.body);
         let products = ProductModel.get();
         res.render('product',{products:products})
     }
 
     updateProduct(req,res,next){
-        // console.log(req.params.id);
         const id = req.params.id;
-        console.log(id);
+        // console.log(id);
         const productFound = ProductModel.getById(id);
-        console.log(productFound);
+        // console.log(productFound);
         if(productFound){
             let data = productFound
             res.render('update-products',{errors:false, product:productFound});
@@ -41,6 +40,18 @@ export default class ProductController{
     postUpdateProducts(req,res,next){
         ProductModel.update(req.body);
         res.render('product',{products:ProductModel.get()});
+    }
+
+    deleteProduct(req,res){
+        const id = req.params.id;
+        const productFound = ProductModel.getById(id);
+        if(!productFound){
+            return res.status(401).send("Product Not found");
+        }
+        ProductModel.delete(id);
+        // let products = ProductModel.get();
+        res.render('product',{products:ProductModel.get()});
+        // res.render('product',{products:ProductModel.get()});
     }
 
     

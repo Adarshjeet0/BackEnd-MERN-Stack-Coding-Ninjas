@@ -32,11 +32,17 @@ export default class ProductModel{
     }
     
     static update(updatedObj){
-        console.log(updatedObj);
-        console.log(products[0]);
-        console.log(products[0]);
+        // console.log(updatedObj.id);
+        // console.log(products[0]);
+        // console.log(products[0]);
         const index = products.findIndex((product) => product.id == updatedObj.id);
         products[index] = updatedObj;
+    }
+
+    static delete(deleteId){
+        
+        const index = products.findIndex((product) => product.id == deleteId);
+        products.splice(index, 1);
     }
 }
 var products = [
