@@ -1,6 +1,7 @@
 //importing express library
 import express from 'express'
 import ProductController from './src/controllers/product.controller.js'
+import UserController from './src/controllers/user.controller.js'
 import path from 'path'
 import ejsLayouts from 'express-ejs-layouts'
 import {validateRequest} from './src/middlewares/validation.middleware.js';
@@ -17,6 +18,7 @@ server.set('views', path.join(path.resolve(),'src','views'));
 
 
 const productController = new ProductController();
+const userController = new UserController();
 
 // parsing url data
 server.use(express.urlencoded({extended:true}))
@@ -29,6 +31,12 @@ server.post('/update-products', productController.postUpdateProducts);
 server.get('/update-products/:id', productController.updateProduct)
 
 server.post('/delete-product/:id',productController.deleteProduct);
+
+server.get('/register',userController.getRegister)
+server.post('/register',userController.postRegister)
+
+server.get('/login',userController.getLogin)
+server.post('/login',userController.postLogin)
 server.use(express.static('./src/views'));
 server.use(express.static('./public'));
 
