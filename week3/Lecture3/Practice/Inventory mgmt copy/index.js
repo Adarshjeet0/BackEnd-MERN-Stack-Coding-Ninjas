@@ -48,6 +48,8 @@ server.post('/register',userController.postRegister)
 server.get('/login',userController.getLogin)
 server.post('/login', userController.postLogin)
 
+server.get('/logout',userController.logout);
+
 
 server.listen(5000);
 console.log("Server is running on port number 5000");

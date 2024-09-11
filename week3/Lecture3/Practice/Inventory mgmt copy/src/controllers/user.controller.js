@@ -3,7 +3,7 @@ import ProductModel from '../models/product.model.js';
 
 export default class UserController{
     getRegister(req,res){
-        res.render('register');
+        res.render('register', {userEmail: null});
     }
     postRegister(req,res){
         const {name, email, password} = req.body;
@@ -22,6 +22,16 @@ export default class UserController{
             return res.render('login',{errors:"Invalid Credentials"});
         }
         req.session.userEmail=email;
-        res.render('product',{products:ProductModel.get()});
+        res.render('product',{products:ProductModel.get(), userEmail: req.session.userEmail});
+    }
+    logout(req,res){
+        req.session.destroy((err)=>{
+            if(err){
+                res.status(401).send(err);
+            }else{
+                res.redirect("/login");
+            }
+
+        })
     }
 }
