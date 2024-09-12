@@ -8,11 +8,18 @@ import {validateRequest} from './src/middlewares/validation.middleware.js';
 import {uploadFile} from './src/middlewares/file-upload.middleware.js';
 import {auth} from './src/middlewares/auth.middleware.js';
 import session from 'express-session';
+
+//importing cookie parser
+import cookieParser from 'cookie-parser';
+import {lastVisited} from './src/middlewares/lastVisited.middleware.js';
+
 //creating server
 const server = express();
 
 server.use(ejsLayouts);
 server.use(express.json());
+server.use(cookieParser());
+server.use(lastVisited);
 //setup view engine settings
 server.set('view engine', 'ejs');
 server.set('views', path.join(path.resolve(),'src','views'));
@@ -50,6 +57,7 @@ server.post('/login', userController.postLogin)
 
 server.get('/logout',userController.logout);
 
+//importing cookies parser
 
 server.listen(5000);
 console.log("Server is running on port number 5000");
