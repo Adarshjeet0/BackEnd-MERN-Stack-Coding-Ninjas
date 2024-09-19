@@ -19,6 +19,18 @@ export default class ProductModel{
       products.push(product);
       return product;
     }
+
+    static get(id){
+      const newPro = products.find((product) => product.ide == id);
+      return newPro;
+    }
+
+    static getFilteredProducts(minPrice, maxPrice, category){
+      const result = products.filter((product)=>{
+        return ((!minPrice || product.price >= minPrice) && (!maxPrice || product.price <= maxPrice) && (!category || product.category == category))
+      });
+      return result;
+    }
 } 
 
 var products = [
@@ -28,7 +40,7 @@ var products = [
       'Description for Product 1',
       19.99,
       'https://m.media-amazon.com/images/I/51-nXsSRfZL._SX328_BO1,204,203,200_.jpg',
-      'Cateogory1'
+      'Category1'
     ),
     new ProductModel(
       2,
@@ -36,7 +48,7 @@ var products = [
       'Description for Product 2',
       29.99,
       'https://m.media-amazon.com/images/I/51xwGSNX-EL._SX356_BO1,204,203,200_.jpg',
-      'Cateogory2',
+      'Category2',
       ['M', 'XL']
     ),
     new ProductModel(
@@ -45,6 +57,6 @@ var products = [
       'Description for Product 3',
       39.99,
       'https://m.media-amazon.com/images/I/31PBdo581fL._SX317_BO1,204,203,200_.jpg',
-      'Cateogory3',
+      'Category3',
       ['M', 'XL','S']
     )];
