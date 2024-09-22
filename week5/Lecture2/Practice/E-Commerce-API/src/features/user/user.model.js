@@ -1,5 +1,6 @@
 export default class UserModel{
     constructor(name, email, password, type){
+        this.id = uniqueId++
         this.name = name;
         this.email = email;
         this.password = password;
@@ -15,10 +16,11 @@ export default class UserModel{
         const result = users.find((u)=> u.email == email && u.password == password);
         return result || null;
     }
+    static uniqueId = 2;
 
     static getAll(){
         return users;
     }
 }
 
-var users = [];
+var users = [{"id":1,"name":"ada","email":"ada@gmail.com","password":"1234","type":"Customer"}];
