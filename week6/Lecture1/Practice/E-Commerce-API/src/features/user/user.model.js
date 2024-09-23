@@ -1,6 +1,6 @@
 export default class UserModel{
     constructor(name, email, password, type){
-        this.id = uniqueId++
+        this.id = UserModel.uniqueId++;
         this.name = name;
         this.email = email;
         this.password = password;
@@ -20,6 +20,9 @@ export default class UserModel{
 
     static getAll(){
         return users;
+    }
+    static getUser(id){
+        return users.find((u)=> u.id == id);
     }
 }
 

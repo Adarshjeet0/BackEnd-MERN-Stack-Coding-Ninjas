@@ -22,7 +22,14 @@ export default class ProductController{
         // res.status(200).send("Post request is done");
     }
 
-    rateProduct(req,res){}
+    rateProduct(req,res){
+        const {userId, productId, rating} = req.query;
+        const error = ProductModel.rateProduct(userId,productId, rating);
+        if(error){
+            return res.status(404).send(error);
+        }
+        res.status(200).send("Rating is added");
+    }
 
     getOneProduct(req,res){
         const id = req.params.id;
