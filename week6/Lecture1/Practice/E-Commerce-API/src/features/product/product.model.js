@@ -2,7 +2,7 @@ import UserModel from '../user/user.model.js';
 
 export default class ProductModel{
     constructor(id, name, desc, price, imageUrl, category, sizes){
-        this.ide=id;
+        this.id=id;
         this.name=name;
         this.desc=desc;
         this.price=price;
@@ -22,7 +22,7 @@ export default class ProductModel{
     }
 
     static get(id){
-      const newPro = products.find((product) => product.ide == id);
+      const newPro = products.find((product) => product.id == id);
       return newPro;
     }
 
@@ -81,4 +81,5 @@ var products = [
       'https://m.media-amazon.com/images/I/31PBdo581fL._SX317_BO1,204,203,200_.jpg',
       'Category3',
       ['M', 'XL','S']
-    )];
+    )
+  ];

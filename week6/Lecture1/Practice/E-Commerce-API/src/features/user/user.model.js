@@ -12,8 +12,11 @@ export default class UserModel{
         return newUser;
     }
     static signin(email, password){
+        // console.log(`${email} and ${password}`);
+        // console.log("Signin called");
         // const newUser = new UserModel(name, email, password, type);
         const result = users.find((u)=> u.email == email && u.password == password);
+        // console.log(result);
         return result || null;
     }
     static uniqueId = 2;
@@ -26,4 +29,5 @@ export default class UserModel{
     }
 }
 
-var users = [{"id":1,"name":"ada","email":"ada@gmail.com","password":"1234","type":"Customer"}];
+// var users = [{"id":1,"name":"ada","email":"ada@gmail.com","password":"1234","type":"Customer"}];
+var users = [new UserModel("ada", "ada@gmail.com", "1234", "Customer")];

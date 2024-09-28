@@ -8,6 +8,7 @@ export default class UserController{
         res.status(200).send(user);
     }
     signin(req,res){
+        console.log(req);
         const {email,password} = req.body;
         const result = UserModel.signin(email,password);
         if(result){
@@ -21,6 +22,7 @@ export default class UserController{
                     expiresIn: '1h',
                 }
             )
+            console.log(token)
             return res.status(200).send(token);
         }else{
             return res.status(401).send("Invalid credentials");
