@@ -1,16 +1,27 @@
 import fs from 'fs';
+import winston from 'winston';
 
 const fsPromise = fs.promises;
 
-async function log(logData) {
-    try {
-        logData = 
-        `\n ${new Date().toString()} - ${logData}`;
-        await fsPromise.appendFile('log.txt', logData);
-    } catch(err) {
-        console.log(err);
-    }
-}
+// async function log(logData) {
+//     try {
+//         logData = 
+//         `\n ${new Date().toString()} - ${logData}`;
+//         await fsPromise.appendFile('log.txt', logData);
+//     } catch(err) {
+//         console.log(err);
+//     }
+// }
+
+//Create Logger using winston library
+const logger = winston.createLogger({
+    level: 'info',
+    format: winston.format.json(),
+    defaultMeta: { service: 'request-logging' },
+    transports: [
+      new winston.transports.File({ filename: 'log.txt'}),
+    ],
+  });
 
 const loggerMiddleware = async (
     req, 
@@ -19,7 +30,7 @@ const loggerMiddleware = async (
 ) => { 
     // 1. Log request body.
     const logData = `${req.url} - ${JSON.stringify(req.body)}`;
-    await log(logData);
+    logger.info(logData);
     next();
 };
 
