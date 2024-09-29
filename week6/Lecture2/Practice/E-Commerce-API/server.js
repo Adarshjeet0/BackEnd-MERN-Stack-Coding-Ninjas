@@ -11,6 +11,7 @@ import jwtAuth from './src/middlewares/jwt.middleware.js';
 import cartRoute from './src/features/cart/cartRoutes.js';
 import apiDocs from './swagger.json' assert {type:"json"};
 import loggerMiddleware from './src/middlewares/logger.middleware.js';
+import {ApplicationError} from './src/error-Handler/applicationError.js';
 
 
 // 2. Create Server
@@ -27,6 +28,20 @@ server.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
 server.use("/api/products",jwtAuth, productRouter);
 server.use("/api/users", userRouter);
 server.use("/api/cart",jwtAuth, cartRoute);
+
+server.use((err, req, res, next)=>{
+    console.log(err);
+    if (err instanceof ApplicationError){
+      res.status(err.status).send(err.message);
+    }
+  
+    // server errors.
+    res
+    .status(500)
+    .send(
+      'Something went wrong, please try later'
+      );
+  });
 
 // 3. Default request handler
 server.get('/', (req, res)=>{

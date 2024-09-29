@@ -22,13 +22,20 @@ export default class ProductController{
         // res.status(200).send("Post request is done");
     }
 
-    rateProduct(req,res){
-        const {userId, productId, rating} = req.query;
-        const error = ProductModel.rateProduct(userId,productId, rating);
-        if(error){
-            return res.status(404).send(error);
+    rateProduct(req,res,next){
+        try {
+            const {userId, productId, rating} = req.query;
+            ProductModel.rateProduct(userId,productId, rating);
+            res.status(200).send("Rating is added");
+
+        } catch (error) {
+            // return res.status(404).send(error.message);
+            console.log("Passing error to middleware");
+            next(error);
         }
-        res.status(200).send("Rating is added");
+        // if(error){
+            
+        // }
     }
 
     getOneProduct(req,res){

@@ -1,4 +1,5 @@
 import UserModel from '../user/user.model.js';
+import { ApplicationError } from '../../error-Handler/applicationError.js';
 
 export default class ProductModel{
     constructor(id, name, desc, price, imageUrl, category, sizes){
@@ -35,12 +36,16 @@ export default class ProductModel{
 
     static rateProduct(userId, productId, rating){
       const product = this.get(productId);
+
+      //Validate Product
       if(!product){
-        return "Product not found";
+        throw new ApplicationError("Product not found", 400);
       }
       const user = UserModel.getUser(userId);
+
+      // Validate User
       if(!user){
-        return "User not found";
+        throw new ApplicationError("User not found", 403);
       }
 
       if(!product.ratings){

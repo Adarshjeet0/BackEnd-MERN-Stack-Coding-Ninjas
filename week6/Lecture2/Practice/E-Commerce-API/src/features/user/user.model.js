@@ -19,7 +19,7 @@ export default class UserModel{
         // console.log(result);
         return result || null;
     }
-    static uniqueId = 2;
+    static uniqueId = 1;
 
     static getAll(){
         return users;
@@ -30,4 +30,4 @@ export default class UserModel{
 }
 
 // var users = [{"id":1,"name":"ada","email":"ada@gmail.com","password":"1234","type":"Customer"}];
-var users = [new UserModel("ada", "ada@gmail.com", "1234", "Customer")];
+var users = [new UserModel("ada", "ada@gmail.com", "1234", "Customer"),new UserModel("ada", "ada@gmail.com", "1234", "Customer")];
