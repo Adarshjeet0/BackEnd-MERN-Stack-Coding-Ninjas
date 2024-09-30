@@ -33,7 +33,7 @@ export class customErrorHandler extends Error {
 }
 
 export const errorHandlerMiddleware = (err, req, res, next) => {
-  console.error(err); // More appropriate for logging errors
+  // console.error(err); // More appropriate for logging errors
 
   if (err instanceof customErrorHandler) {
     return res.status(err.statusCode).send(err.message);
