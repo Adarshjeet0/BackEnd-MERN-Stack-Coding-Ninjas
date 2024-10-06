@@ -9,6 +9,7 @@ export default class ProductController{
 
     addProduct(req, res){
         const {name, price, sizes} = req.body;
+        // console.log(req.body);
         const newProduct = {
             name,
             price: parseFloat(price),
