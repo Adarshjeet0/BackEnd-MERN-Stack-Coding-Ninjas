@@ -15,7 +15,12 @@ export default class PostController{
     }
 
     static addPost(req, res){
-        const {userId, caption, imageUrl} = req.body;
+        // console.log(req.body);
+        const imageUrl = req.file.filename;
+        const userId = req.userId;
+        console.log(userId);
+        const {caption} = req.body;
+        // console.log(imageUrl);
         const post = PostModel.addPost(userId, caption, imageUrl);
         if(post){
             return res.status(400).send(post);
@@ -25,8 +30,9 @@ export default class PostController{
 
     static update(req, res){
         const id = req.params.id;
-        // console.log(req);
-        const {userId, caption, imageUrl} = req.body;
+        const userId = req.userId;
+        const {caption} = req.body;
+        const imageUrl = req.file.filename;
         const post = PostModel.updatePost(id, caption, imageUrl);
         if(post){
             return res.status(200).send(post)

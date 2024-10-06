@@ -12,6 +12,9 @@ export default class PostModel{
     }
     
     static addPost(userId, caption, imageUrl){
+        // console.log(userId);
+        // console.log(caption);
+        // console.log(imageUrl);
         const newPost = new PostModel(userId, caption, imageUrl);
         posts.push(newPost);
         return newPost;

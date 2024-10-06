@@ -1,12 +1,13 @@
 import express from 'express';
 import CommentsController from './comments.controller.js';
+import jwtAuth from '../../middlewares/jwt.middleware.js';
 
 export const commentsRouter = express.Router();
 
-commentsRouter.get('/:postId', CommentsController.getComment);
+commentsRouter.get('/:postId',jwtAuth, CommentsController.getComment);
 
-commentsRouter.post('/:postId', CommentsController.addComment);
+commentsRouter.post('/:postId',jwtAuth, CommentsController.addComment);
 
-commentsRouter.delete('/:commentId', CommentsController.deleteComment);
+commentsRouter.delete('/:commentId',jwtAuth, CommentsController.deleteComment);
 
-commentsRouter.put('/:commentId', CommentsController.updateComment);
+commentsRouter.put('/:commentId',jwtAuth, CommentsController.updateComment);

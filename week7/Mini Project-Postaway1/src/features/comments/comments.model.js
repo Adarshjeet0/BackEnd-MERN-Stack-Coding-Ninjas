@@ -1,20 +1,28 @@
 export default class CommentModel{
     static id = 0;
-    constructor(usrId, postId, content){
+    constructor(userId, postId, content){
         this.id = ++CommentModel.id;
-        this.usrId = usrId;
+        this.userId = userId;
         this.postId = postId;
         this.content = content;
     }
 
     static getAll(postId){
-        return comments.filter(comment => comment.postId == postId);
+        // console.log(postId);
+        return comments.filter(comment => comment.postId == parseInt(postId));
     }
 
     static addComment(userId, postId, content){
-        const newComment = new CommentModel(userId, postId, content);
-        comments.push(newComment);
-        return newComment;
+        const alreadyExistCommentIndex = comments.findIndex(comment => comment.userId == userId && comment.postId == postId);
+        if(alreadyExistCommentIndex < 0){
+            const newComment = new CommentModel(userId, postId, content);
+            comments.push(newComment);
+            return newComment;
+        }
+        else{
+            comments[alreadyExistCommentIndex].content = content;
+            return comments[alreadyExistCommentIndex];
+        }
     }
 
     static updateComment(commentId, newContent){

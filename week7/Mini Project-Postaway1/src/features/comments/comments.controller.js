@@ -4,17 +4,14 @@ import CommentsModel from './comments.model.js';
 export default class CommentsController{
     static getComment(req, res){
         const postId = req.params.postId;
-        // console.log(postId);
-        const {userId, content} = req.body;
-        const comments = CommentsModel.getAll();
-        console.log(comments);
+        const comments = CommentsModel.getAll(postId);
         res.status(200).send(comments);
     }
 
     static addComment(req, res){
-        const postId = req.params.postId;
-        
-        const {userId, content} = req.body;
+        const postId = parseInt(req.params.postId);
+        const userId = req.userId;      
+        const {content} = req.body;
         const comment = CommentsModel.addComment(userId, postId, content);
         if(comment){
             return res.status(201).send(comment);
@@ -36,7 +33,7 @@ export default class CommentsController{
         const commentId = req.params.commentId;
         const comments = CommentsModel.deleteComment(commentId);
         if(comments){
-            return res.status(200).send(comments);
+            return res.status(200).send("Delete Successfully");
         }
         return res.status(404).send("No match found");
     }
