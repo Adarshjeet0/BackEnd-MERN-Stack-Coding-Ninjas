@@ -1,4 +1,4 @@
-
+import {ApplicationError } from '../../error-Handler/applicationError.js';
 
 
 
@@ -49,11 +49,20 @@ export default class PostModel{
 
     static deletePost(id){
         const postIndex = posts.findIndex(po => po.id == id);
-        if(postIndex >=0 ){
-            posts.splice(postIndex, 1);
-            return posts;
+        if(postIndex == -1){
+            throw new ApplicationError("No post found", 404); 
         }
+        posts.splice(postIndex, 1);
+        return posts;
+        // if(postIndex >=0 ){
+        //     posts.splice(postIndex, 1);
+        //     return posts;
+        // }
         
+    }
+
+    static filterPosts(value){
+        return posts.filter(post => post.caption.toLowerCase().includes(value.toLowerCase()));
     }
 
 

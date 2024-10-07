@@ -22,6 +22,7 @@
     "paths": {
         "/api/users/signin": {
             "post": {
+                "tags":["User"],
                 "summary": "Login",
                 "description": "User Login to get Token",
                 "requestBody": {

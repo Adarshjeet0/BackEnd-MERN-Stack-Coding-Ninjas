@@ -6,14 +6,16 @@ export const postsRouter = express.Router();
 
 postsRouter.get('/all',jwtAuth, PostsController.getAll);
 
-postsRouter.get('/:id',jwtAuth, PostsController.getById);
+postsRouter.get('/:postId',jwtAuth, PostsController.getById);
 
 // postsRouter.get('/:userSpecified', ()=>{});
 
 postsRouter.post('/',jwtAuth, upload.single('imageUrl'), PostsController.addPost);
 
-postsRouter.delete('/:id',jwtAuth, PostsController.delete);
+postsRouter.post('/filter',jwtAuth, PostsController.filterPosts);
 
-postsRouter.put('/:id',jwtAuth,upload.single('imageUrl'), PostsController.update);
+postsRouter.delete('/:postId',jwtAuth, PostsController.delete);
+
+postsRouter.put('/:postId',jwtAuth,upload.single('imageUrl'), PostsController.update);
 
 

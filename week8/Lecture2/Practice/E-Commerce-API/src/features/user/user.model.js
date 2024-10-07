@@ -21,6 +21,7 @@ export default class UserModel{
             const newUser = new UserModel(name, email, password, type);
 
             await collections.insertOne(newUser);
+            return newUser;
         } catch (error) {
             // console.log("Something went wrong");
             throw new ApplicationError("Something went wrong");
@@ -28,7 +29,7 @@ export default class UserModel{
         }
 
         // users.push(newUser);
-        return newUser;
+        
     }
     static signin(email, password){
         // console.log(`${email} and ${password}`);

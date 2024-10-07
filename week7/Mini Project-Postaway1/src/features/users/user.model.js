@@ -1,3 +1,4 @@
+import {ApplicationError } from '../../error-Handler/applicationError.js';
 export default class UserModel{
     static id = 0;
     constructor(name, email, password){
@@ -16,7 +17,11 @@ export default class UserModel{
 
     static signin(email, password){
         // Check if user exists in database
-        return users.find(user => user.email == email && user.password == password);
+        const result = users.find(user => user.email == email && user.password == password);
+        if(!result){
+            throw new ApplicationError("Invalid User", 401);
+        }
+        return result
     }
 }
 

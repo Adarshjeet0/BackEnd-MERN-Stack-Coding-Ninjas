@@ -14,10 +14,10 @@ export default class UserController{
         // const hashedPassword = bcrypt.hashSync(password, 10); 
     }
 
-    static signin(req, res){
-        const {email, password} = req.body;
-        const result = UserModel.signin(email, password);
-        if(result){
+    static signin(req, res, next){
+        try {
+            const {email, password} = req.body;
+            const result = UserModel.signin(email, password);
             const token = jwt.sign(
                 {
                     userId :result.id,
@@ -29,11 +29,13 @@ export default class UserController{
                 }
             )
             console.log(token)
-            return res.status(200).send(token);
-        }else{
-            return res.status(401).send("Invalid credentials");
-
+            res.status(200).send(token);
+            
+        } catch (err) {
+            console.log("Wrong credentials");
+            next(err);
         }
+        
 
     }
 }
