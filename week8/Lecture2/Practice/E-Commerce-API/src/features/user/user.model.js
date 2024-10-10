@@ -9,36 +9,8 @@ export default class UserModel{
         this.password = password;
         this.type = type;
     }
-    static async signup(name, email, password, type){
-
-        try {
-            // 1. Get the database 
-            const db = getDB();
-
-            // 2. Get the collection
-            const collections = db.collection("users");
-
-            const newUser = new UserModel(name, email, password, type);
-
-            await collections.insertOne(newUser);
-            return newUser;
-        } catch (error) {
-            // console.log("Something went wrong");
-            throw new ApplicationError("Something went wrong");
-            
-        }
-
-        // users.push(newUser);
-        
-    }
-    static signin(email, password){
-        // console.log(`${email} and ${password}`);
-        // console.log("Signin called");
-        // const newUser = new UserModel(name, email, password, type);
-        const result = users.find((u)=> u.email == email && u.password == password);
-        // console.log(result);
-        return result || null;
-    }
+    
+    
     static uniqueId = 1;
 
     static getAll(){

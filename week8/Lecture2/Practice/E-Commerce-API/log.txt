@@ -2,3 +2,75 @@
 {"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"I am author\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"Adarsh\",\"email\":\"ada@gmail.com\",\"password\":\"1234\",\"typr\":\"Customer\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"ada@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"typr\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e7f5caa8228488ccae2 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/67069e615caa8228488ccae0 - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signup - {\"name\":\"ad1\",\"email\":\"a1@gmail.com\",\"password\":\"1234\",\"type\":\"sells\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a1@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}
+{"level":"info","message":"/api/products - {}","service":"request-logging"}

@@ -13,9 +13,15 @@ const productController = new ProductController();
 // localhost/api/products 
 productRouter.get('/rate', productController.rateProduct);
 productRouter.get('/filter', productController.getfilteredProducts);
-productRouter.get('/', productController.getAllProducts);
-productRouter.post('/', upload.single('imageUrl'), productController.addProduct);
-productRouter.get('/:id', productController.getOneProduct);
+productRouter.get('/', (req, res)=>{
+    productController.getAllProducts(req, res);
+});
+productRouter.post('/', upload.single('imageUrl'), (req, res)=>{
+    productController.addProduct(req, res);
+});
+productRouter.get('/:id', (req, res)=>{
+    productController.getOneProduct(req, res);
+});
 
 
 export default productRouter;
