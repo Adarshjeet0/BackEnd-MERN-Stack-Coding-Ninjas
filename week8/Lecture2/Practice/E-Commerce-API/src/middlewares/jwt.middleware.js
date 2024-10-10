@@ -15,6 +15,7 @@ const jwtAuth = (req, res, next)=>{
     try {
         const payload = jwt.verify(token, 'qwertyuiop'); 
         req.userId = payload.userId;
+        // console.log(payload.userId);
         console.log(payload);
     } catch (error) {
         // 4. return error

@@ -51,16 +51,44 @@ export default class ProjectRepository{
         }
     }
 
-    async rateProduct(){
-        try {
-            // 1. get database;
+    async rateProduct(userId, productId, rating){
+        // console.log(`${userId}, ${productId}, ${rating}`);
+        try{
             const db = getDB();
-
-            // 2. get collections
             const collection = db.collection(this.collection);
-        } catch (error) {
+            await collection.updateOne(
+                {
+                    _id:new ObjectId(productId)
+                },
+                {
+                    $push: {ratings: {userID:new ObjectId(userId), rating}}
+                })
+
+        }catch(error){
             console.log(error);
-            return new ApplicationError("Something went wrong with databases");
+            throw new ApplicationError("Something went wrong with database", 500);
+        }
+    }
+
+    async filterProducts(minPrice, maxPrice, category){
+        try{
+            const db = getDB();
+            const collection = db.collection(this.collection);
+            let filterExpression={};
+            if(minPrice){
+                filterExpression.price = {$gte: parseFloat(minPrice)}
+            }
+            if(maxPrice){
+                filterExpression.price = {...filterExpression.price, $lte: parseFloat(maxPrice)}
+            }
+            if(category){
+                filterExpression.category=category;
+            }
+            return await collection.find(filterExpression).toArray();
+            
+        }catch(error){
+            console.log(error);
+            throw new ApplicationError("Something went wrong with database", 500);
         }
     }
 

@@ -13,6 +13,7 @@ export default class UserController{
         const hashedPassword = await bcrypt.hash(password, 12);
         // console.log(hashedPassword);
         const user = new UserModel(name, email, hashedPassword, type);
+        console.log(user);
         await this.userRepository.signup(user);
         res.status(201).send(user);
 
@@ -28,10 +29,11 @@ export default class UserController{
             }
             else{
                 const result = await bcrypt.compare(password, user.password);
+                // console.log(result);
                 if(result){
                     const token = jwt.sign(
                         {
-                            userId :result.id,
+                            userId :user._id,
                             email: email
                         },
                         process.env.JWT_SECRET,

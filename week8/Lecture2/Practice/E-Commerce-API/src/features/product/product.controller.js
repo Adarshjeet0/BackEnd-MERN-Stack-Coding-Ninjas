@@ -37,15 +37,21 @@ export default class ProductController{
 
     async rateProduct(req,res,next){
         try {
+            // console.log(req);
             const userId = req.userId;
+            // console.log(userId);
             const {productId, rating} = req.query;
-            productRepository.rateProduct(userId,productId, rating);
-            res.status(200).send("Rating is added");
+            // console.log(`${userId}, ${productId}, ${rating}`);
+            
+            await this.productRepository.rateProduct(userId,productId, rating);
+            // console.log(res);
+            res.status(200).send("Rating has been added");
 
         } catch (error) {
             // return res.status(404).send(error.message);
             console.log("Passing error to middleware");
-            next(error);
+            res.status(400).send("Somenting went wrong");
+            // next(error);
         }
         
     }
@@ -62,7 +68,7 @@ export default class ProductController{
 
     }
 
-    async getfilteredProducts(req,res){
+    async filterProducts(req,res){
         try {
             console.log(req.query);
             const {minPrice, maxPrice, category} = req.query;
