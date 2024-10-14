@@ -13,23 +13,23 @@ export default class CartController{
       const {productId, quantity} = req.body;
       const userId = req.userId;
       await this.cartRepository.add(userId, productId, quantity)
-      res.status(200).send({userId, productId, quantity});
+      res.status(201).send("Cart is updated");
     } catch (error) {
       console.log(error);
       res.status(500).send("Something went wrong!!! ");
     }
   }
-  async updateCart(req, res){
-    try {
-      const {productId, quantity} = req.body;
-      const userId = req.userId;
-      await this.cartRepository.update(userId, productId, quantity)
-      res.status(200).send({userId, productId, quantity});
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Something went wrong!!! ");
-    }
-  }
+  // async updateCart(req, res){
+  //   try {
+  //     const {productId, quantity} = req.body;
+  //     const userId = req.userId;
+  //     await this.cartRepository.update(userId, productId, quantity)
+  //     res.status(200).send({userId, productId, quantity});
+  //   } catch (error) {
+  //     console.log(error);
+  //     res.status(500).send("Something went wrong!!! ");
+  //   }
+  // }
 
   async get(req, res) {
     try {

@@ -11,19 +11,21 @@ export default class CartRepository{
         try {
             const db = getDB();
             const collection = db.collection(this.collection);
-            // if product is already add into the cart then remove.
-            await collection.deleteOne(
-                {
-                    userId: new ObjectId(userId),
-                    productId: new ObjectId(productId)
-                }
-            );
-            // Insert new product
-            await collection.insertOne(
+            const id = await this.getNextCounter(db);
+            console.log(id);
+            
+            await collection.updateOne(
                 {
                     userId:new ObjectId(userId),
-                    productId: new ObjectId(productId),
-                    quantity
+                    productId: new ObjectId(productId)
+                },
+                {
+                    $setOnInsert: {_id:id},
+                    $inc:{
+                        quantity:quantity
+                    }
+                },{
+                    upsert:true
                 }
             )
             return {
@@ -37,34 +39,8 @@ export default class CartRepository{
             throw new ApplicationError("Something went with database to product into the cart", 500);
         }
     }
-    async update(userId, productId, quantity){
-        try {
-            const db = getDB();
-            const collection = db.collection(this.collection);
-            // if product is already add into the cart then remove.
-            await collection.updateOne(
-                {
-                    userId: new ObjectId(userId),
-                    productId: new ObjectId(productId)
-                },
-                {
-                    $set:{
-                        quantity: quantity
-                    }
-                }
-            );
-            
-            return {
-                userId:new ObjectId(userId),
-                productId: new ObjectId(productId),
-                quantity
-            };
-
-        } catch (error) {
-            console.log(error);
-            throw new ApplicationError("Something went with database to product into the cart", 500);
-        }
-    }
+    
+    
 
     async get(){
         try {
@@ -77,7 +53,7 @@ export default class CartRepository{
         }
     }
 
-    async delete(userId, productId){
+    async delete(userId, cartItemId){
         try {
             const db = getDB();
             const collection = db.collection(this.collection);
@@ -85,20 +61,24 @@ export default class CartRepository{
             await collection.deleteOne(
                 {
                     userId: new ObjectId(userId),
-                    productId: new ObjectId(productId)
+                    productId: new ObjectId(cartItemId)
                 }
             );
-            // Insert new product
-            
-            // return {
-            //     userId:new ObjectId(userId),
-            //     productId: new ObjectId(productId),
-            //     quantity
-            // };
 
         } catch (error) {
             console.log(error);
             throw new ApplicationError("Something went with database to product into the cart", 500);
         }
+    }
+
+    async getNextCounter(db){
+
+        const resultDocument = await db.collection("counters").findOneAndUpdate(
+            {_id:'cartItemId'},
+            {$inc:{value: 1}},
+            {returnDocument:'after'}
+        )  
+        console.log(resultDocument);
+        return resultDocument.value;
     }
 }
