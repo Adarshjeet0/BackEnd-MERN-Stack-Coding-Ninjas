@@ -23,3 +23,13 @@
 {"level":"info","message":"/api/signin - {\"email\":\"ada1@gmail.com\",\"password\":\"123\"}","service":"request-logging"}
 {"level":"info","message":"/api/posts/all - {}","service":"request-logging"}
 {"level":"info","message":"/api/signin - {\"email\":\"ada1@gmail.com\",\"password\":\"123\"}","service":"request-logging"}
+{"level":"info","message":"/ - {}","service":"request-logging"}
+{"level":"info","message":"/favicon.ico - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/ - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui.css - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-bundle.js - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-standalone-preset.js - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/swagger-ui-init.js - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/favicon-32x32.png - {}","service":"request-logging"}
+{"level":"info","message":"/api-docs/favicon-32x32.png - {}","service":"request-logging"}

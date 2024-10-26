@@ -19,12 +19,14 @@ export default class ProductController{
 
     async addProduct(req, res){
         try {
-            const {name, price, sizes} = req.body;
+            const {name, price, sizes, category, desc} = req.body;
             const newProduct = {
                 name,
                 price: parseFloat(price),
                 sizes: sizes.split(','),
                 imageUrl: req.file.filename,
+                category:category,
+                desc:desc
             };
             // console.log(newProduct);
             const product = await this.productRepository.add(newProduct);
@@ -80,5 +82,16 @@ export default class ProductController{
             res.status(400).send("Something went wrong");
         }
     }
+
+
+    async averagePrice(req, res, next){
+        try{
+          const result = await this.productRepository.averageProductPricePerCategory();
+          res.status(200).send(result);
+        }catch(err){
+        console.log(err);
+        return res.status(200).send("Something went wrong");
+      }
+      }
 
 }

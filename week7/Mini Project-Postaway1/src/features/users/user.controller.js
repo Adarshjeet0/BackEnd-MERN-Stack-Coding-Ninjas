@@ -28,7 +28,7 @@ export default class UserController{
                     expiresIn: '1h',
                 }
             )
-            console.log(token)
+            console.log(token);
             res.status(200).send(token);
             
         } catch (err) {
