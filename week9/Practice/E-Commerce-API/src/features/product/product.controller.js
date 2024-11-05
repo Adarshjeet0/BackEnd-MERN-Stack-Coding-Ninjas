@@ -84,14 +84,26 @@ export default class ProductController{
     }
 
 
-    async averagePrice(req, res, next){
+    async getAvgRating(req, res, next){
         try{
-          const result = await this.productRepository.averageProductPricePerCategory();
-          res.status(200).send(result);
+            const result = await this.productRepository.averageRatingPerProduct();
+            console.log(result);
+            res.status(200).send(result);
         }catch(err){
-        console.log(err);
-        return res.status(200).send("Something went wrong");
-      }
-      }
+            console.log(err);
+            return res.status(200).send("Something went wrong");
+        }
+    }
+
+    async getRatingsPerProduct(req, res, next){
+        try{
+            const result = await this.productRepository.ratingsPerProduct();
+            console.log(result);
+            res.status(200).send(result);
+        }catch(err){
+            console.log(err);
+            return res.status(200).send("Something went wrong");
+        }
+    }
 
 }

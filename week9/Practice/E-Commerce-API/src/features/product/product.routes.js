@@ -26,10 +26,16 @@ productRouter.post('/', upload.single('imageUrl'), (req, res)=>{
 productRouter.get("/averagePrice", (req, res, next)=>{
     productController.averagePrice(req, res)
   });
+productRouter.get('/averageRatingPerProduct', (req, res)=>{
+    productController.getAvgRating(req, res);
+});
+productRouter.get('/countRatingPerProduct', (req, res)=>{
+    productController.getRatingsPerProduct(req, res);
+});
+    
 productRouter.get('/:id', (req, res)=>{
     productController.getOneProduct(req, res);
 });
-
 
 
 export default productRouter;

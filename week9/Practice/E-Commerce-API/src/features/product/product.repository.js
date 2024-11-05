@@ -67,14 +67,14 @@ export default class ProjectRepository{
                 }
             )
 
-            await collection.insertOne(
-                {
-                    _id:new ObjectId(productId)
-                },
-                {
-                    $pull: {ratings: {userID:new ObjectId(userId)}}
-                }
-            )
+            // await collection.insertOne(
+            //     {
+            //         _id:new ObjectId(productId)
+            //     },
+            //     {
+            //         $push: {ratings: {userID:new ObjectId(userId),rating}}
+            //     }
+            // )
 
             //Insert Rating
             await collection.updateOne(
@@ -134,6 +134,60 @@ export default class ProjectRepository{
             throw new ApplicationError("Something went wrong with database", 500);    
         }
     }
+
+    async averageRatingPerProduct(){
+        try {
+           const db = getDB();
+           return await db.collection(this.collection)
+            .aggregate([
+                // 1. Create documents for ratings
+                {
+                    $unwind:"$ratings"
+                },
+                // 2. Group rating per product and get average
+                {
+                    $group:{
+                        _id: "$name",
+                        averageRating:{$avg:"$ratings.rating"}
+                    }
+                },
+                {
+                    // 3. Sort the collection
+                    $sort:{_id:1}
+                }
+            ]).toArray();
+        } catch (error) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500); 
+        }
+    }
+
+    async ratingsPerProduct(){
+        try {
+           const db = getDB();
+           return await db.collection(this.collection)
+            .aggregate([
+                // 1. Project name of product, and countOfRating
+                {
+                    $project:{name:1, countOfRating:{
+                        $cond:{if:{$isArray:"$ratings"}
+                        ,then:{$size:"$ratings"}, else:0}}}
+                },
+                {
+                    // Stage 2: Sort the collection
+                    $sort:{countOfRating:-1}
+                },
+                // {
+                //     // 3. Limit to just 1 item in result
+                //     $limit:1
+                // }
+            ]).toArray();
+        } catch (error) {
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500); 
+        }
+    }
+
 
 
 
