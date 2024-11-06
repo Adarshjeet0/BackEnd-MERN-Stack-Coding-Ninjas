@@ -91,7 +91,17 @@ export default class ProductController{
             res.status(200).send(result);
         }catch(err){
             console.log(err);
-            return res.status(200).send("Something went wrong");
+            return res.status(400).send("Something went wrong");
+        }
+    }
+    async averagePrice(req, res, next){
+        try{
+            const result = await this.productRepository.averageProductPricePerCategory();
+            console.log(result);
+            res.status(200).send(result);
+        }catch(err){
+            console.log(err);
+            return res.status(400).send("Something went wrong");
         }
     }
 

@@ -235,3 +235,6 @@
 {"level":"info","message":"/api/products/countRatingPerProduct - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/countRatingPerProduct - {}","service":"request-logging"}
 {"level":"info","message":"/api/products/countRatingPerProduct - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a3@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products/averagePrice - {}","service":"request-logging"}
+{"level":"info","message":"/api/products/averagePrice - {}","service":"request-logging"}
