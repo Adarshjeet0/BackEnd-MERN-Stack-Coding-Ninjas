@@ -6,6 +6,7 @@ import swagger from 'swagger-ui-express';
 import cors from 'cors';
 import productRouter from './src/features/product/product.routes.js';
 import userRouter from './src/features/user/user.routes.js';
+import orderRouter from './src/features/order/order.routes.js';
 import bodyParser from 'body-parser';
 // import basicAuthorizer from './src/middlewares/basicAuth.middleware.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
@@ -31,6 +32,7 @@ server.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
 server.use("/api/products",jwtAuth, productRouter);
 server.use("/api/users", userRouter);
 server.use("/api/cart",jwtAuth, cartRoute);
+server.use("/api/orders",jwtAuth, orderRouter);
 
 server.use((err, req, res, next)=>{
     console.log(err);
