@@ -271,3 +271,5 @@
 {"level":"info","message":"/api/users/signup - {\"name\":\"ad4\",\"email\":\"a4@gmail.com\",\"password\":\"1234\",\"type\":\"Customer\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signup - {\"name\":\"ad5\",\"email\":\"a5@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
 {"level":"info","message":"/api/users/signin - {\"name\":\"ad5\",\"email\":\"a5@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"name\":\"ad5\",\"email\":\"a5@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/resetPassword - {\"newPassword\":\"password\"}","service":"request-logging"}
