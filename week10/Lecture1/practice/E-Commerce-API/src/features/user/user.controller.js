@@ -8,14 +8,18 @@ export default class UserController{
         this.userRepository = new UserRepository();
     }
 
-    async signUp(req,res){
+    async signUp(req,res,next){
         const {name,email,password, type} = req.body;
-        const hashedPassword = await bcrypt.hash(password, 12);
-        // console.log(hashedPassword);
-        const user = new UserModel(name, email, hashedPassword, type);
-        console.log(user);
-        await this.userRepository.signup(user);
-        res.status(201).send(user);
+        try {
+            const hashedPassword = await bcrypt.hash(password, 12);
+            // console.log(hashedPassword);
+            const user = new UserModel(name, email, hashedPassword, type);
+            console.log(user);
+            await this.userRepository.signup(user);
+            res.status(201).send(user);
+        } catch (error) {
+            next(error); 
+        }
 
     }
     async signin(req,res){

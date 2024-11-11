@@ -17,6 +17,7 @@ import loggerMiddleware from './src/middlewares/logger.middleware.js';
 import {ApplicationError} from './src/error-Handler/applicationError.js';
 import {connectToMongoDB} from './src/config/mongodb.js';
 import {connectUsingMongoose} from './src/config/mongooseConfig.js';
+import mongoose from 'mongoose';
 
 
 // 2. Create Server
@@ -37,6 +38,10 @@ server.use("/api/orders",jwtAuth, orderRouter);
 
 server.use((err, req, res, next)=>{
     console.log(err);
+    if(err instanceof mongoose.Error.ValidationError){
+      return res.status(400).send(err.message);
+    }
+
     if (err instanceof ApplicationError){
       res.status(err.status).send(err.message);
     }

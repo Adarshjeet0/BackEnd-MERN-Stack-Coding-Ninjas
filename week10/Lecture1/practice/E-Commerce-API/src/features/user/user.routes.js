@@ -5,14 +5,14 @@ import express from 'express';
 const userController = new UserController();
 const userRouter = express.Router();
 
-userRouter.post('/signup', (req, res)=>{
-    userController.signUp(req, res)
+userRouter.post('/signup', (req, res,next)=>{
+    userController.signUp(req, res,next)
 });
 userRouter.post('/signin', (req, res)=>{
     userController.signin(req, res)
 });
-userRouter.post('/resetPassword',jwtAuth, (req, res)=>{
-    userController.resetPassword(req, res)
+userRouter.post('/resetPassword',jwtAuth, (req, res,next)=>{
+    userController.resetPassword(req, res,next)
 });
 
 export default userRouter;
