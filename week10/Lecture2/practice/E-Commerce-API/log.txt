@@ -311,3 +311,7 @@
 {"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
 {"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
 {"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a4@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {}","service":"request-logging"}
+{"level":"info","message":"/api/likes - {\"id\":\"67335938f2a73a1fbd6901b1\",\"type\":\"Product\"}","service":"request-logging"}

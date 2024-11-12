@@ -18,6 +18,7 @@ import {ApplicationError} from './src/error-Handler/applicationError.js';
 import {connectToMongoDB} from './src/config/mongodb.js';
 import {connectUsingMongoose} from './src/config/mongooseConfig.js';
 import mongoose from 'mongoose';
+import likeRouter from './src/features/like/like.routes.js';
 
 
 // 2. Create Server
@@ -35,6 +36,7 @@ server.use("/api/products",jwtAuth, productRouter);
 server.use("/api/users", userRouter);
 server.use("/api/cart",jwtAuth, cartRoute);
 server.use("/api/orders",jwtAuth, orderRouter);
+server.use('/api/likes', jwtAuth, likeRouter)
 
 server.use((err, req, res, next)=>{
     console.log(err);
