@@ -25,9 +25,9 @@ export default class UserController{
     async signin(req,res){
         try {
             const {email,password} = req.body;
-            // console.log(email);
+        
             const user = await this.userRepository.findByEmail(email);
-            // console.log(user);
+            console.log(user);
             if(!user){
                 return res.status(400).send("Incorrect credentials");
             }

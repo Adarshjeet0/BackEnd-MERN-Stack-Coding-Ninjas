@@ -1,6 +1,13 @@
 import {ObjectId} from 'mongodb';
 import {getDB} from '../../config/mongodb.js';
 import { ApplicationError } from '../../error-Handler/applicationError.js';
+import mongoose from "mongoose";
+import { productSchema } from "./product.schema.js";
+import { reviewSchema } from "./review.schema.js";
+
+const ProductModel = mongoose.model("Products", productSchema);
+const ReviewModel = mongoose.model("Review", reviewSchema);
+
 export default class ProjectRepository{
     constructor(){
         this.collection = "products";
@@ -51,43 +58,71 @@ export default class ProjectRepository{
         }
     }
 
+    // async rateProduct(userId, productId, rating){
+    //     // console.log(`${userId}, ${productId}, ${rating}`);
+    //     try{
+    //         const db = getDB();
+    //         const collection = db.collection(this.collection);
+
+    //          //If rating is already exist then remove it
+    //          await collection.updateOne(
+    //             {
+    //                 _id:new ObjectId(productId)
+    //             },
+    //             {
+    //                 $pull: {ratings: {userID:new ObjectId(userId)}}
+    //             }
+    //         )
+
+    //         // await collection.insertOne(
+    //         //     {
+    //         //         _id:new ObjectId(productId)
+    //         //     },
+    //         //     {
+    //         //         $push: {ratings: {userID:new ObjectId(userId),rating}}
+    //         //     }
+    //         // )
+
+    //         //Insert Rating
+    //         await collection.updateOne(
+    //             {
+    //                 _id:new ObjectId(productId)
+    //             },
+    //             {
+    //                 $push: {ratings: {userID:new ObjectId(userId), rating}}
+    //             })
+
+    //     }catch(error){
+    //         console.log(error);
+    //         throw new ApplicationError("Something went wrong with database", 500);
+    //     }
+    // }
+
     async rateProduct(userId, productId, rating){
-        // console.log(`${userId}, ${productId}, ${rating}`);
         try{
-            const db = getDB();
-            const collection = db.collection(this.collection);
-
-             //If rating is already exist then remove it
-             await collection.updateOne(
-                {
-                    _id:new ObjectId(productId)
-                },
-                {
-                    $pull: {ratings: {userID:new ObjectId(userId)}}
-                }
-            )
-
-            // await collection.insertOne(
-            //     {
-            //         _id:new ObjectId(productId)
-            //     },
-            //     {
-            //         $push: {ratings: {userID:new ObjectId(userId),rating}}
-            //     }
-            // )
-
-            //Insert Rating
-            await collection.updateOne(
-                {
-                    _id:new ObjectId(productId)
-                },
-                {
-                    $push: {ratings: {userID:new ObjectId(userId), rating}}
-                })
-
-        }catch(error){
-            console.log(error);
-            throw new ApplicationError("Something went wrong with database", 500);
+            // 1. Check if product exists
+            const productToUpdate = await ProductModel.findById(productId);
+            if(!productToUpdate){
+                throw new Error("Product not found")
+            }
+    
+            // Find the existing review
+            const userReview = await ReviewModel.findOne({product: new ObjectId(productId), user: new ObjectId(userId)});
+            if(userReview){
+                userReview.rating = rating;
+                await userReview.save();
+            }else{
+                const newReview = new ReviewModel({
+                    product: new ObjectId(productId),
+                    user: new ObjectId(userId),
+                    rating: rating
+                });
+                newReview.save();
+            }
+    
+        }catch(err){
+            console.log(err);
+            throw new ApplicationError("Something went wrong with database", 500);    
         }
     }
 
