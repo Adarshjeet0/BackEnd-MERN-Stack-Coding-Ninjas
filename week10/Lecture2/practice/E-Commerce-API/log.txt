@@ -303,3 +303,11 @@
 {"level":"info","message":"/api/products/rate - {\"productID\":\"671914a11973a3267ee6f240\",\"rating\":4}","service":"request-logging"}
 {"level":"info","message":"/api/products/rate - {\"productID\":\"671914a11973a3267ee6f240\",\"rating\":4}","service":"request-logging"}
 {"level":"info","message":"/api/products/rate - {\"productId\":\"671914a11973a3267ee6f240\",\"rating\":4}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"a4@gmail.com\",\"password\":\"1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}
+{"level":"info","message":"/api/products - {\"name\":\"Amazon Kindle\",\"price\":15000,\"description\":\"This book is awailable on Amazon\",\"categories\":\"673355614139741dcd3eee45, 673355614139741dcd3eee43\"}","service":"request-logging"}

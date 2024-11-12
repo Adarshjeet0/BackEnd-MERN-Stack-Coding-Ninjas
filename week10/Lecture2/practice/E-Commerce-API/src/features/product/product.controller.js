@@ -19,18 +19,41 @@ export default class ProductController{
 
     async addProduct(req, res){
         try {
-            const {name, price, sizes, category, desc} = req.body;
-            const newProduct = {
-                name,
-                price: parseFloat(price),
-                sizes: sizes.split(','),
-                imageUrl: req.file.filename,
-                category:category,
-                desc:desc
-            };
-            // console.log(newProduct);
-            const product = await this.productRepository.add(newProduct);
-            res.status(200).send(product); 
+            // const {name, price, sizes, category, desc} = req.body;
+            // const newProduct = {
+            //     name,
+            //     price: parseFloat(price),
+            //     sizes: sizes.split(','),
+            //     imageUrl: req.file.filename,
+            //     category:category,
+            //     desc:desc
+            // };
+            // // console.log(newProduct);
+            // const product = await this.productRepository.add(newProduct);
+            // res.status(200).send(product); 
+
+            try{
+                console.log(req.body);
+                const { name, price, sizes,categories,description } = req.body;
+                const newProduct = new ProductModel(name,description, parseFloat(price),
+                req?.file?.filename,categories, sizes?.split(',')
+                );
+                const createdProduct = await this.productRepository.add(newProduct);
+                res.status(201).send(createdProduct);
+            }catch(err){
+                console.log(err);
+                return res.status(200).send("Something went wrong");
+            }
+
+            // // 1. Adding Product
+            // const newProduct = new ProductModel(productData);
+            // const savedProduct = await newProduct.save();
+
+            // // 2. Update categories.
+            // await CategoryModel.updateMany(
+            //     {_id: {$in: productData.categories}},
+            //     {$push: {products: new ObjectId(savedProduct._id)}}
+            // )
         } catch (error) {
             console.log(error);
             res.status(400).send("Something went wrong");

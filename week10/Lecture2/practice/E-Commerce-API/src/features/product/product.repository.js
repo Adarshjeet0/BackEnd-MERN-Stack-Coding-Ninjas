@@ -4,10 +4,11 @@ import { ApplicationError } from '../../error-Handler/applicationError.js';
 import mongoose from "mongoose";
 import { productSchema } from "./product.schema.js";
 import { reviewSchema } from "./review.schema.js";
+import { categorySchema } from "./category.schema.js";
 
 const ProductModel = mongoose.model("Products", productSchema);
 const ReviewModel = mongoose.model("Review", reviewSchema);
-
+const CategoryModel = mongoose.model('Category', categorySchema)
 export default class ProjectRepository{
     constructor(){
         this.collection = "products";
@@ -42,16 +43,19 @@ export default class ProjectRepository{
         }
     }
 
-    async add(newProduct){
+    async add(productData){
         try {
-            // 1. get database;
-            const db = getDB();
+            // 1. Adding Product
+            console.log(productData);
+            productData.categories=productData.category.split(',').map(e=> e.trim());
+            const newProduct = new ProductModel(productData);
+            const savedProduct = await newProduct.save();
 
-            // 2. get collections
-            const collection = db.collection(this.collection);
-            // 3. insert new product
-            await collection.insertOne(newProduct);
-            return newProduct;
+            // 2. Update categories.
+            await CategoryModel.updateMany(
+                {_id: {$in: productData.categories}},
+                {$push: {products: new ObjectId(savedProduct._id)}}
+            )
         } catch (error) {
             console.log(error);
             return new ApplicationError("Something went wrong with databases");
