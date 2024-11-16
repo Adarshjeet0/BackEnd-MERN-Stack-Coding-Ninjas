@@ -1,4 +1,5 @@
 import LikeModel from './likes.model.js';
+import {ApplicationError} from '../../error-Handler/applicationError.js';
 export default class LikeController{
     static getAll(req, res){
         const postId = parseInt(req.params.postId);

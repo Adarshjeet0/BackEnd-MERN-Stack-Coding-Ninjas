@@ -1,4 +1,5 @@
 import PostRepository from './posts.repository.js';
+import {ApplicationError} from '../../error-Handler/applicationError.js';
 export default class PostController{
     constructor(){
         this.postRepository = new PostRepository();

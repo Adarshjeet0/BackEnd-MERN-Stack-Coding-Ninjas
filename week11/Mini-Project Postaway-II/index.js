@@ -17,9 +17,9 @@ app.use(loggerMiddleware);
 app.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
 app.use('/api/users', userRouter);
 app.use('/api/posts',jwtAuth, postsRouter);
-app.use('/api/comments', commentsRouter);
-app.use('/api/likes', likesRouter);
-app.use('/api/friends', likesRouter);
+app.use('/api/comments',commentsRouter);
+app.use('/api/likes',jwtAuth, likesRouter);
+// app.use('/api/friends',jwtAuth, friendsRouter);
 
 app.use((err, req, res, next)=>{
     console.log(err);

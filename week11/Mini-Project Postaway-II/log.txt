@@ -102,3 +102,70 @@
 {"level":"info","message":"/api/posts/67385cfba27fffce11b59366 - {}","service":"request-logging"}
 {"level":"info","message":"/api/posts/67385cfba27fffce11b59366 - {}","service":"request-logging"}
 {"level":"info","message":"/api/posts/67383b2a5747b794f931a852 - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh1@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a85 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a859 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a859 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a860 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a860 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a860 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a860 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a860 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is first comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh1@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh1@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383b2a5747b794f931a852 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {\"comment\":\"THis is user2 comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383b2a5747b794f931a852 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/users/signin - {\"email\":\"adarsh@gmail.com\",\"password\":\"Adarsh@1234\"}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/posts/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67383d277ebc43c020e2b203 - {}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {\"comment\":\"THis is updated comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {\"comment\":\"THis is updated comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {\"comment\":\"THis is updated comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {\"comment\":\"THis is updated comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {\"newComment\":\"THis is updated comment\"}","service":"request-logging"}
+{"level":"info","message":"/api/comments/67389e573ca9787f441dbf6c - {}","service":"request-logging"}

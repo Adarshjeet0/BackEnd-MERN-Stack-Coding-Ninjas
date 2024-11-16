@@ -3,6 +3,7 @@ import CommentController from './comments.controller.js';
 import jwtAuth from '../../middlewares/jwt.middleware.js';
 
 export const commentsRouter = express.Router();
+const commentController = new CommentController();
 
 //-------------------------Old routes--------------------------
 
