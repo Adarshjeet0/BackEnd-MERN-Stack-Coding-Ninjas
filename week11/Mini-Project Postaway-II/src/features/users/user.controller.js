@@ -1,4 +1,4 @@
-import UserModel from './user.model.js';
+import UserModel from './user.schema.js';
 import jwt from 'jsonwebtoken';
 import {ApplicationError} from '../../error-Handler/applicationError.js';
 import UserRepository from './user.repository.js';
@@ -64,10 +64,10 @@ export default class UserController{
 
     }
 
-    async logout(req, res) {
+    async logOut(req, res) {
         try {
             // Inform the client to delete the token
-            localStorage.removeItem('token');
+            // localStorage.removeItem('token');
             return res.status(200).send("Logged out successfully");
         } catch (error) {
             console.log(error);
@@ -75,7 +75,29 @@ export default class UserController{
         }
     }
 
-    async logoutFromAllDevices(req, res){
-        //write code here
+    async logoutFromAllDevices(req, res) {
+        const { userId } = req.body; // Extract userId from the request
+        try {
+            const user = await UserModel.findById(userId);
+
+            if (!user) {
+                return res.status(404).send("User not found");
+            }
+
+            // Increment the token version
+            user.tokenVersion += 1;
+            await user.save();
+
+            return res.status(200).json({ message: "Logged out from all devices successfully" });
+        } catch (error) {
+            console.error("Error logging out from all devices:", error);
+            res.status(500).json({ message: "Error logging out from all devices" });
+        }
     }
+
+    async getUserById(req, res){}
+
+    async getAllUser(req, res){}
+    
+    async updateUser(req, res){}
 }

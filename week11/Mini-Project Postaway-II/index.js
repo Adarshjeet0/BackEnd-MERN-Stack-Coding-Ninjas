@@ -8,16 +8,18 @@ import {commentsRouter} from './src/features/comments/comments.routes.js';
 import apiDocs from './swagger.json' assert {type:"json"};
 import loggerMiddleware from './src/middlewares/logger.middleware.js';
 import {ApplicationError} from './src/error-Handler/applicationError.js';
+import jwtAuth from './src/middlewares/jwt.middleware.js';
 
 const app = express();
 
 app.use(bodyParser.json());
 app.use(loggerMiddleware);
 app.use('/api-docs', swagger.serve, swagger.setup(apiDocs));
-app.use('/api/user', userRouter);
-app.use('/api/posts', postsRouter);
+app.use('/api/users', userRouter);
+app.use('/api/posts',jwtAuth, postsRouter);
 app.use('/api/comments', commentsRouter);
 app.use('/api/likes', likesRouter);
+app.use('/api/friends', likesRouter);
 
 app.use((err, req, res, next)=>{
     console.log(err);

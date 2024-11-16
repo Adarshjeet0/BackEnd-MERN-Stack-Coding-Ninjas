@@ -1,13 +1,32 @@
 import express from 'express';
-import CommentsController from './comments.controller.js';
+import CommentController from './comments.controller.js';
 import jwtAuth from '../../middlewares/jwt.middleware.js';
 
 export const commentsRouter = express.Router();
 
-commentsRouter.get('/:postId',jwtAuth, CommentsController.getComment);
+//-------------------------Old routes--------------------------
 
-commentsRouter.post('/:postId',jwtAuth, CommentsController.addComment);
 
-commentsRouter.delete('/:commentId',jwtAuth, CommentsController.deleteComment);
+// commentsRouter.get('/:postId',jwtAuth, CommentsController.getComment);
 
-commentsRouter.put('/:commentId',jwtAuth, CommentsController.updateComment);
+// commentsRouter.post('/:postId',jwtAuth, CommentsController.addComment);
+
+// commentsRouter.delete('/:commentId',jwtAuth, CommentsController.deleteComment);
+
+// commentsRouter.put('/:commentId',jwtAuth, CommentsController.updateComment);
+
+
+//-----------------------New Routes-------------------------------------
+
+commentsRouter.get('/:postId',(req, res)=>{
+    commentController.getCommentByPostId(req, res);
+})
+commentsRouter.post('/:postId',(req, res)=>{
+    commentController.addCommentByPostId(req, res);
+})
+commentsRouter.put('/:commentId',(req, res)=>{
+    commentController.updateCommentByCommentId(req, res);
+})
+commentsRouter.delete('/:commentId',(req, res)=>{
+    commentController.deleteCommentByCommentId(req, res);
+})

@@ -23,8 +23,36 @@ const postController = new PostsController();
 // postsRouter.put('/:postId',jwtAuth,upload.single('imageUrl'), PostsController.update);
 
 //--------------------------New Routes-----------------------
-postsRouter.post('/', jwtAuth, upload.single('imageUrl'), (req, res, next)=>{
+
+//Retrieve all posts from various users to compile a news feed
+postsRouter.get('/all', (req, res, next)=>{
+    postController.getAll(req, res, next);
+})
+
+//Retrieve a specific post by ID
+postsRouter.get('/:postId', (req, res, next)=>{
+    postController.getPostById(req, res, next);
+})
+
+//Retrieve all posts for a specific user
+postsRouter.get('/', (req, res, next)=>{
+    postController.getUserPost(req, res, next);
+})
+
+//Create a new post
+postsRouter.post('/', upload.single('imageUrl'), (req, res, next)=>{
     postController.createPost(req, res, next);
 })
+
+//Delete a specific post by ID
+postsRouter.delete('/:postId', (req, res, next)=>{
+    postController.deletePostById(req, res, next);
+})
+
+//Update a specific post
+postsRouter.put('/:postId',upload.single('imageUrl'), (req, res, next)=>{
+    postController.updatePostById(req, res, next);
+})
+
 
 
