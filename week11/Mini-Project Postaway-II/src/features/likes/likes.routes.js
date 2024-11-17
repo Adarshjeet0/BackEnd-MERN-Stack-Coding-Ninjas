@@ -3,6 +3,7 @@ import LikeController from './likes.controller.js';
 import jwtAuth from '../../middlewares/jwt.middleware.js';
 export const likesRouter = express.Router();
 
+const likeController = new LikeController();
 
 //--------------------Old Likes routes-----------------------------
 // likesRouter.get('/:postId',jwtAuth, LikeController.getAll);
@@ -11,9 +12,9 @@ export const likesRouter = express.Router();
 
 
 //---------------------New likes routes-----------------------------
-likesRouter.get('/:id', (req, res)=>{
-    likeController.getById(req, res)
+likesRouter.get('/:id', (req, res,next)=>{
+    likeController.getLikes(req, res, next);
 })
-likesRouter.get('/toggle/:id', (req, res)=>{
-    likeController.getById(req, res)
+likesRouter.post('/toggle/:id', (req, res,next)=>{
+    likeController.toggleLike(req, res, next);
 })

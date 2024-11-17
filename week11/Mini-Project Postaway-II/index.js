@@ -9,6 +9,8 @@ import apiDocs from './swagger.json' assert {type:"json"};
 import loggerMiddleware from './src/middlewares/logger.middleware.js';
 import {ApplicationError} from './src/error-Handler/applicationError.js';
 import jwtAuth from './src/middlewares/jwt.middleware.js';
+import {sendOTPRouter} from './src/features/sendOTP/sendOTP.routes.js';
+import {friendRouter} from './src/features/friends/friends.routes.js';
 
 const app = express();
 
@@ -19,7 +21,8 @@ app.use('/api/users', userRouter);
 app.use('/api/posts',jwtAuth, postsRouter);
 app.use('/api/comments',commentsRouter);
 app.use('/api/likes',jwtAuth, likesRouter);
-// app.use('/api/friends',jwtAuth, friendsRouter);
+app.use('/api/otp',jwtAuth, sendOTPRouter);
+app.use('/api/friends',jwtAuth, friendRouter);
 
 app.use((err, req, res, next)=>{
     console.log(err);

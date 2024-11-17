@@ -30,7 +30,18 @@ export const userSchema = new mongoose.Schema({
     tokenVersion: {
         type: Number,
         default: 0 // Starts at 0, increments when logging out from all devices
-    }
+    },
+    otp: {
+        type: Number,
+        default: null, // Temporary storage for OTP
+    },
+        otpExpiry: {
+        type: Date,
+        default: null, // Expiry time for the OTP
+    },
+},
+{
+    timestamps: true, // Automatically manage `createdAt` and `updatedAt` fields
 });
 
 userSchema.pre('save', async function(next) {
