@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" id="login-form">
+        <input type="text" name="" id="user-name" placeholder="Enter you name">
+        <input type="text" name="" id="roomId" placeholder="Enter room id">
+        <button type="submit" id="login-btn">Join Meet</button>
+    </form>
+    <div id="user-wish">
+        <!-- Welcome User -->
+    </div>
+    <div class="chat-container" id="chat-container">
+        <!-- <div></div> -->
+        <div id="chat-list">
+            
+        </div>
+
+        <input type="text" name="" id="input-value" placeholder="Enter Text">
+        <button type="submit" id="submit-btn">Send</button>
+    </div>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000');
+
+        const inputValue = document.getElementById("input-value");
+        const submitBtn = document.getElementById("submit-btn");
+        const chatList = document.getElementById('chat-list');
+        const loginForm = document.getElementById('login-form');
+        const userNameEl = document.getElementById('user-name');
+        const roomIdEl = document.getElementById('roomId');
+        const loginBtn = document.getElementById('login-btn');
+
+        let username = '';
+        let room = '';
+        loginForm.addEventListener('submit', (e)=>{
+            e.preventDefault();
+            console.log("Clicked "+userNameEl.value);
+            username = userNameEl.value;
+            room = roomIdEl.value
+            socket.emit('joined', {
+                username:userNameEl.value,
+                room:roomIdEl.value
+            });
+            loginForm.style.display = 'none';
+            console.log({
+                username:userNameEl.value,
+                room:roomIdEl.value
+            });
+        })
+        submitBtn.addEventListener('click', (e)=>{
+            e.preventDefault();
+            const message = inputValue.value;
+            // console.log(message);
+            socket.emit('newMessage', {username, room, message});
+
+            inputValue.value = "";
+        })
+        
+        socket.on('message',(message)=>{
+            const msgEle = document.createElement('div');
+            msgEle.innerHTML = message.message;
+            chatList.appendChild(msgEle);
+        })
+
+        socket.on('userjoined', (data)=>{
+            const msgEle = document.createElement('div');
+            msgEle.innerHTML = `${data.text}`;
+            chatList.appendChild(msgEle);
+        })
+
+
+        socket.on('load_message', (messages)=>{
+            console.log(messages);
+            messages.forEach(message => {
+                // const messageElement = document.createElement("div");
+                // messageElement.innerText = new Date(message.timestamp).toDateString() + "-" + message.username + ":" + message.message;
+                // messageList.appendChild(messageElement);
+
+                const msgEle = document.createElement('div');
+                msgEle.innerHTML = new Date(message.timestamp).toDateString() + "-" + message.username + ":" + message.message;
+                chatList.appendChild(msgEle);
+                    
+            });
+        })
+    </script>
+</body>
+</html>
