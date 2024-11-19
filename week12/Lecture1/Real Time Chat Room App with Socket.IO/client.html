@@ -1,0 +1,119 @@
+<!-- No need to change the pre-written code.
+Implement the features inside the script tag -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat-Room App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="login-container">
+        <!-- form to enter username and room ID -->
+        <form id="login-form">
+            <input type="text" id="username-input" placeholder="Enter your username" required>
+            <input type="text" id="room-input" placeholder="Enter room ID" required>
+            <button id='start-chatting' type="submit">Start Chatting</button>
+        </form>
+    </div>
+
+    <div id="chat-container">
+        <!-- message display area -->
+        <div id="message-display">
+            <!-- Messages will be appended here -->
+        </div>
+
+        <!-- form to send messages -->
+        <form id="message-form">
+            <input type="text" id="message-input" placeholder="Type your message" required>
+            <button type="submit">Send</button>
+        </form>
+    </div>
+
+    <script src="http://localhost:3000/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io.connect('http://localhost:3000');
+
+        // ----------------- Write your code here ---------------
+        // References to DOM elements
+        const loginContainer = document.getElementById('login-container');
+        const loginForm = document.getElementById('login-form');
+        const usernameInput = document.getElementById('username-input');
+        const roomInput = document.getElementById('room-input');
+        const chatContainer = document.getElementById('chat-container');
+        const messageDisplay = document.getElementById('message-display');
+        const messageForm = document.getElementById('message-form');
+        const messageInput = document.getElementById('message-input');
+
+        // Handle login form submission
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form from reloading the page
+
+            const username = usernameInput.value.trim();
+            const room = roomInput.value.trim();
+
+            if (username && room) {
+                // Notify the server of the user's room and username
+                socket.emit('joinRoom', { username, room });
+
+                // Hide login container and show chat container
+                loginContainer.style.display = 'none';
+                chatContainer.style.display = 'block';
+            }
+        });
+
+        // Handle message form submission
+        messageForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent form from reloading the page
+
+            const message = messageInput.value.trim();
+
+            if (message) {
+                // Send the message to the server
+                socket.emit('chatMessage', message);
+
+                // Clear the input field
+                messageInput.value = '';
+            }
+        });
+
+        // Display incoming messages
+        socket.on('message', (data) => {
+            console.log(data);
+            const messageElement = document.createElement('div');
+            messageElement.textContent = `${data.username}: ${data.text}`;
+            messageDisplay.appendChild(messageElement);
+
+            // Scroll to the bottom of the message display
+            messageDisplay.scrollTop = messageDisplay.scrollHeight;
+        });
+
+        // Welcome message for the user who joins
+        socket.on('welcomeMessage', (message) => {
+            const messageElement = document.createElement('div');
+            messageElement.textContent = message;
+            messageElement.style.fontStyle = 'italic';
+            messageDisplay.appendChild(messageElement);
+
+            messageDisplay.scrollTop = messageDisplay.scrollHeight;
+        });
+
+        // Notification when a user joins or leaves the chat
+        socket.on('notification', (notification) => {
+            const notificationElement = document.createElement('div');
+            notificationElement.textContent = notification;
+            notificationElement.style.fontStyle = 'italic';
+            notificationElement.style.color = 'gray';
+            messageDisplay.appendChild(notificationElement);
+
+            messageDisplay.scrollTop = messageDisplay.scrollHeight;
+        });
+
+    </script>
+
+
+</body>
+
+</html>
