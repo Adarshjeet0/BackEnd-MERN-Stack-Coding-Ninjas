@@ -21,22 +21,3 @@ socket.on("newMessage", (data) => {
 
 
 
-socket.on("newMessage", (data) => {
-    const newEl = document.createElement("div"); // Create a new div element
-    newEl.innerHTML = `
-        <div class="message-container">
-            <div class="icon-msg-container right">
-                <div class="user-icon">
-                    <img src="./pics/bird.jpeg" alt="" style="height: 40px; width: 40px;">
-                </div>
-                <div class="message sender">
-                    <div class="name-timestamp d-flex justify-content-between">
-                        <p>Adarsh</p>
-                        <p>02:03</p>
-                    </div>
-                    <p>${data.message}</p>
-                </div>
-            </div>
-        </div>`;
-    chatBodyEl.appendChild(newEl); // Append the newly created element
-});
